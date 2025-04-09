@@ -516,4 +516,11 @@
        id="tspan120"
        x="227.44141"
        y="123.32479">Frobulation complete.</tspan></text>
+
+<!-- Note this deliberately chops off 'UTC' on the end of the stamps -->
+<text x="400" y="568" font-family="'AvantGarde'" font-size="20px" fill="#ffffff">Created:</text>
+<text x="510" y="568" font-family="monospace" font-size="20px" fill="#ffffff">@BUILDSTAMP@</text>
+<text x="400" y="590" font-family="'AvantGarde'" font-size="20px" fill="#ffffff">Published:</text>
+<text x="510" y="590" font-family="monospace" font-size="20px" fill="#ffffff">@BUILDHUMAN@</text>
+
 </svg>
