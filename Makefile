@@ -22,7 +22,7 @@ VFSDIR=$(shell pwd)/packages
 export VFSDIR
 
 # List of commands we just hand off to the pbx-iso-builder package
-PASSTHROUGH=splash reiso iso
+PASSTHROUGH=splash reiso iso bump
 
 .PHONY: $(PASSTHROUGH)
 $(PASSTHROUGH):
@@ -30,7 +30,7 @@ $(PASSTHROUGH):
 	@cd $(ISOBUILDER); $(MAKE) -s $@
 
 # Noisy passthrough (no -s on make)
-NPASSTHROUGH=biostest test
+NPASSTHROUGH=biostest test zz
 .PHONY: $(NPASSTHROUGH)
 $(NPASSTHROUGH):
 	@echo Passing command $@ to pbx-iso-builder

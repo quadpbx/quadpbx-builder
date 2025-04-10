@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo 'VirtioFS Debug hook triggered: early-initrd-hook' >/dev/console
+echo 'Add "break=mount" to the kernel params to launch a debug shell prior to this being run' >/dev/console
+echo '' >/dev/console

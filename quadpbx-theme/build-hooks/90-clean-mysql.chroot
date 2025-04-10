@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -d /var/lib/mysql ]; then
+	echo I: Removing /var/lib/mysql from ISO
+	rm -rf /var/lib/mysql
+else
+	echo E: /var/lib/mysql does not exist, error in 90-clean-mysql.chroot
+	exit 99
+fi

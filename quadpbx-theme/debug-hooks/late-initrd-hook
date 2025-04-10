@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo '' >/dev/console
+echo 'VirtioFS Debug hook triggered: late-initrd-hook' >/dev/console
+echo 'Add "break=bottom" to the kernel params to launch a debug shell after this was run' >/dev/console
+echo '' >/dev/console
+echo '** IMPORTANT **: Debug hooks are run using virtiofs mounts to assist in debugging,' >/dev/console
+echo 'these can not be used to update things in a production build!' >/dev/console
+echo '' >/dev/console

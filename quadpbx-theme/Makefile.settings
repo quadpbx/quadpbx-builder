@@ -1,3 +1,26 @@
-# Empty settings file, currently not needed
+# Our theme name
 THEMENAME=QuadPBX
 
+# Install Mariadb
+PREREQS += $(STAGING)/package-lists/mariadb.list.chroot
+
+$(STAGING)/package-lists/%.list.chroot: $(THEMEDIR)/%.list.chroot
+	@mkdir -p $(@D)
+	cp $< $@
+
+# Systemd override to stop maria from starting until it's needed
+MARIAOVERRIDE=$(STAGING)/includes.chroot/etc/systemd/system/mariadb.service.d/override.conf
+
+$(MARIAOVERRIDE): $(THEMEDIR)/mariadb-override.conf
+	@mkdir -p $(@D)
+	cp $< $@
+
+PREREQS += $(MARIAOVERRIDE)
+
+# Add any build-hooks we have
+BHOOKS=$(addprefix $(STAGING)/hooks/live/,$(notdir $(wildcard $(THEMEDIR)/build-hooks/*)))
+$(STAGING)/hooks/live/%: $(THEMEDIR)/build-hooks/%
+	@mkdir -p $(@D)
+	cp $< $@
+
+PREREQS += $(BHOOKS)

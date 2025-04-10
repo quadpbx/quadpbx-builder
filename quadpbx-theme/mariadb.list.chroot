@@ -1,0 +1,3 @@
+# Install MariaDB. This is disabled by the systemd override
+mariadb-server
+mariadb-client
